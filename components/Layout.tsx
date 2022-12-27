@@ -1,7 +1,7 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Navbar from "./Navbar";
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: { children: ReactNode }) => {
   return (
     <div>
       <Navbar />
