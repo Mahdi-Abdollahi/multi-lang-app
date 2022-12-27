@@ -1,0 +1,9 @@
+{
+  "navItems": {
+    "home": "home",
+    "events": "events",
+    "aboutUs": "about us",
+    "contactUs": "contact us"
+  },
+  "language": "lang"
+}
