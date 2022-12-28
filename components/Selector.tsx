@@ -12,13 +12,14 @@ const Selector = ({
   selectedOption: string | null;
   selectorText: string | ReactNode;
 }) => {
+  console.log("SELECTOR");
   const [isExpanded, setIsExpanded] = useState(false);
   const selectOptionHandler = (option: string) => {
     onSelectOption(option);
     setIsExpanded((prevState) => !prevState);
   };
   return (
-    <div className="relative bg-white text-black rounded w-25 ">
+    <div className="relative bg-white text-black rounded w-fit">
       <button
         className="text-center font-bold p-2 m-l-auto ronded w-full"
         onClick={() => setIsExpanded((prevState) => !prevState)}

@@ -25,14 +25,18 @@ interface ContextProps {
 export const LanguageContext = createContext({} as ContextProps);
 
 const LangeguageContexProvider: FC<LangStateProps> = ({ children }) => {
+  console.log("CONTEXT");
   const [language, setLanguage] = useState("en");
   const changeLangHandler = (newLang: string) => setLanguage(newLang);
 
   useEffect(() => {
     let dir = language === "fa" ? "rtl" : "ltr";
-    if (document) {
-      document.querySelector("html").setAttribute("dir", dir);
-      document.querySelector("html").setAttribute("lang", language);
+    const htmlElement = document.querySelector(
+      "html"
+    ) as HTMLInputElement | null;
+    if (htmlElement) {
+      htmlElement.setAttribute("dir", dir);
+      htmlElement.setAttribute("lang", language);
     }
   }, [language]);
 

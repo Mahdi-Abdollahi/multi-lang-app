@@ -6,9 +6,11 @@ import { LanguageContext } from "../context/LanguageContext";
 import { languageOptions } from "../languages";
 
 const Navbar = () => {
+  console.log("NAVBAR");
+
+  const [openNav, setOpenNav] = useState(true);
   const { language, changeLangHandler, dictionary } =
     useContext(LanguageContext);
-  const [openNav, setOpenNav] = useState(true);
   const navHandler = () => {
     setOpenNav((prevState) => !prevState);
   };
