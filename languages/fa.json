@@ -1,9 +1,7 @@
 {
-  "navItems": {
-    "home": "خانه",
-    "events": "رویدادها",
-    "aboutUs": "درباره ما",
-    "contactUs": "تماس با ما"
-  },
+  "home": "خانه",
+  "events": "رویدادها",
+  "aboutUs": "درباره ما",
+  "contactUs": "تماس با ما",
   "language": "زبان"
 }

@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useContext, useMemo } from "react";
 import Selector from "./Selector";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
+import { LanguageContext } from "../context/LanguageContext";
+import { languageOptions } from "../languages";
 
 const Navbar = () => {
+  const { language, changeLangHandler, dictionary } =
+    useContext(LanguageContext);
+  console.log(language);
   const [openNav, setOpenNav] = useState(true);
   const navHandler = () => {
     setOpenNav((prevState) => !prevState);
   };
+  const selectorOptions = useMemo(
+    () => Object.keys(languageOptions).map((languageOption) => languageOption),
+    []
+  );
   return (
     <nav className="p-5 bg-[#4752db] shadow flex md:items-center md:justify-between uppercase ">
       <ul
@@ -16,16 +25,16 @@ const Navbar = () => {
         } opacity-100`}
       >
         <li className="w-full px-5 py-4 cursor-pointer md:w-auto md:my-0 hover:bg-[#000]">
-          <Link href="/">HOME</Link>
+          <Link href="/">{dictionary("home")}</Link>
         </li>
         <li className="w-full px-5 py-4 cursor-pointer md:w-auto md:my-0 hover:bg-[#000]">
-          <Link href="/">EVENTS</Link>
+          <Link href="/">{dictionary("events")}</Link>
         </li>
         <li className="w-full px-5 py-4 cursor-pointer md:w-auto md:my-0 hover:bg-[#000]">
-          <Link href="/">ABOUT US</Link>
+          <Link href="/">{dictionary("aboutUs")}</Link>
         </li>
         <li className="w-full px-5 py-4 cursor-pointer md:w-auto md:my-0 hover:bg-[#000]">
-          <Link href="/">CONTACT US</Link>
+          <Link href="/">{dictionary("contactUs")}</Link>
         </li>
       </ul>
       <button
@@ -36,9 +45,9 @@ const Navbar = () => {
       </button>
 
       <Selector
-        options={["English", "فارسی"]}
-        onSelectOption={(option) => console.log(option)}
-        selectedOption={null}
+        options={selectorOptions}
+        onSelectOption={changeLangHandler}
+        selectedOption={language}
         selectorText="lang"
       />
     </nav>

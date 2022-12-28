@@ -1,4 +1,5 @@
 import React, { memo, ReactNode, useState } from "react";
+import { languageOptions } from "../languages";
 
 const Selector = ({
   options,
@@ -11,13 +12,14 @@ const Selector = ({
   selectedOption: string | null;
   selectorText: string | ReactNode;
 }) => {
+  console.log(languageOptions);
   const [isExpanded, setIsExpanded] = useState(false);
   const selectOptionHandler = (option: string) => {
     onSelectOption(option);
     setIsExpanded((prevState) => !prevState);
   };
   return (
-    <div className="relative bg-white text-black rounded w-20 ml-auto ">
+    <div className="relative bg-white text-black rounded w-25 ml-auto ">
       <button
         className="text-center font-bold p-2 m-l-auto ronded w-full"
         onClick={() => setIsExpanded((prevState) => !prevState)}
@@ -26,15 +28,18 @@ const Selector = ({
       </button>
       {isExpanded && (
         <ul className="text-center w-full text-black mt-2 bg-white absolute rounded">
-          {options.map((option) => (
-            <li
-              onClick={() => selectOptionHandler(option)}
-              className="border-gray w-full py-2 cursor-pointer rounded hover:bg-[#858585] "
-              key={option}
-            >
-              {option}
-            </li>
-          ))}
+          {options.map((option) => {
+            const lang = languageOptions[option];
+            return (
+              <li
+                onClick={() => selectOptionHandler(lang)}
+                className="border-gray w-full py-2 cursor-pointer rounded hover:bg-[#858585] "
+                key={option}
+              >
+                {option}
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>
