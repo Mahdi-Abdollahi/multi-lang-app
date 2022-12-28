@@ -8,7 +8,6 @@ import { languageOptions } from "../languages";
 const Navbar = () => {
   const { language, changeLangHandler, dictionary } =
     useContext(LanguageContext);
-  console.log(language);
   const [openNav, setOpenNav] = useState(true);
   const navHandler = () => {
     setOpenNav((prevState) => !prevState);
@@ -28,13 +27,13 @@ const Navbar = () => {
           <Link href="/">{dictionary("home")}</Link>
         </li>
         <li className="w-full px-5 py-4 cursor-pointer md:w-auto md:my-0 hover:bg-[#000]">
-          <Link href="/">{dictionary("events")}</Link>
+          <Link href="/events">{dictionary("events")}</Link>
         </li>
         <li className="w-full px-5 py-4 cursor-pointer md:w-auto md:my-0 hover:bg-[#000]">
-          <Link href="/">{dictionary("aboutUs")}</Link>
+          <Link href="/about">{dictionary("aboutUs")}</Link>
         </li>
         <li className="w-full px-5 py-4 cursor-pointer md:w-auto md:my-0 hover:bg-[#000]">
-          <Link href="/">{dictionary("contactUs")}</Link>
+          <Link href="/contact">{dictionary("contactUs")}</Link>
         </li>
       </ul>
       <button

@@ -12,7 +12,6 @@ const Selector = ({
   selectedOption: string | null;
   selectorText: string | ReactNode;
 }) => {
-  console.log(languageOptions);
   const [isExpanded, setIsExpanded] = useState(false);
   const selectOptionHandler = (option: string) => {
     onSelectOption(option);
