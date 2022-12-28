@@ -41,7 +41,7 @@ const Navbar = () => {
       </ul>
       <button
         onClick={navHandler}
-        className="text-3xl cursor-pointer md:hidden"
+        className="ltr:mr-auto rtl:ml-auto text-3xl cursor-pointer md:hidden"
       >
         <GiHamburgerMenu className="text-white" />
       </button>
