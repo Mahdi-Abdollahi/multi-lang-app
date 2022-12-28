@@ -8,7 +8,7 @@ import { languageOptions } from "../languages";
 const Navbar = () => {
   console.log("NAVBAR");
 
-  const [openNav, setOpenNav] = useState(true);
+  const [openNav, setOpenNav] = useState(false);
   const { language, changeLangHandler, dictionary } =
     useContext(LanguageContext);
   const navHandler = () => {
