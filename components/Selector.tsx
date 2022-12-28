@@ -18,7 +18,7 @@ const Selector = ({
     setIsExpanded((prevState) => !prevState);
   };
   return (
-    <div className="relative bg-white text-black rounded w-25 ml-auto ">
+    <div className="relative bg-white text-black rounded w-25 ">
       <button
         className="text-center font-bold p-2 m-l-auto ronded w-full"
         onClick={() => setIsExpanded((prevState) => !prevState)}

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useMemo } from "react";
+import React, { useState, useContext, useMemo, useEffect } from "react";
 import Selector from "./Selector";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
@@ -16,10 +16,11 @@ const Navbar = () => {
     () => Object.keys(languageOptions).map((languageOption) => languageOption),
     []
   );
+
   return (
-    <nav className="p-5 bg-[#4752db] shadow flex md:items-center md:justify-between uppercase ">
+    <nav className="p-5 bg-[#4752db] shadow flex md:items-center md:justify-between uppercase">
       <ul
-        className={`text-white bg-[#4752db] w-full md:flex md:items-centermd:z-auto md:static absolute left-0 md:w-auto  md:pl-0  md:opacity-100 transition-all ease-in duration-80 ${
+        className={`ltr:mr-auto rtl:ml-auto  text-white bg-[#4752db] w-full md:flex md:items-centermd:z-auto md:static absolute left-0 md:w-auto  md:pl-0  md:opacity-100 transition-all ease-in duration-80 ${
           openNav ? "z-1 top-[80px] opacity-100" : "z-[-1] top-[-400px]"
         } opacity-100`}
       >

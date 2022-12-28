@@ -28,6 +28,14 @@ const LangeguageContexProvider: FC<LangStateProps> = ({ children }) => {
   const [language, setLanguage] = useState("en");
   const changeLangHandler = (newLang: string) => setLanguage(newLang);
 
+  useEffect(() => {
+    let dir = language === "fa" ? "rtl" : "ltr";
+    if (document) {
+      document.querySelector("html").setAttribute("dir", dir);
+      document.querySelector("html").setAttribute("lang", language);
+    }
+  }, [language]);
+
   const dictionary = (key: string): string => {
     let langData: { [key: string]: string } = {};
 
